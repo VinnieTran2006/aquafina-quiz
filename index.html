@@ -2,11 +2,12 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Be Your Flow • Aquafina</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: url('flow_background.png') no-repeat center center fixed;
+      background: url('background.png') no-repeat center center fixed;
       background-size: cover;
       color: #003f8a;
       margin: 0;
@@ -15,34 +16,30 @@
     header {
       text-align: center;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.7); /* Nền header trong suốt nhẹ */
-      border-radius: 10px;
-      margin: 10px auto;
-      max-width: 600px;
     }
     header img {
       max-width: 180px;
+      transition: all 0.5s ease;
     }
     form {
-      background: rgba(255, 255, 255, 0.85); /* Nền form trong suốt nhẹ */
-      margin: 0 auto 30px;
+      background: rgba(255, 255, 255, 0.85);
+      margin: 20px auto;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       max-width: 600px;
     }
     h1 {
       color: #005bb5;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       text-align: center;
-      text-shadow: 1px 1px 2px #ffffff;
     }
     .question {
       margin-bottom: 20px;
       border: 1px solid #cce7ff;
       padding: 15px;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.9);
+      background: #ffffff;
     }
     label {
       display: block;
@@ -62,19 +59,18 @@
       cursor: pointer;
       display: block;
       margin: 20px auto 0;
-      transition: background 0.3s, transform 0.2s;
+      transition: background 0.3s;
     }
     button:hover {
       background-color: #006a94;
-      transform: scale(1.05);
     }
     #result {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       max-width: 600px;
       margin: 20px auto;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
     #flowType img {
@@ -95,10 +91,159 @@
 
 <form id="quizForm">
   <h1>Be Your Flow</h1>
-  <!-- Các câu hỏi từ 1 đến 15 (giữ nguyên nội dung của bạn ở đây) -->
-  <!-- ... -->
 
-  <!-- Nút hoàn tất -->
+  <!-- 15 câu hỏi trắc nghiệm -->
+  <div class="question"><p>1. Khi bạn cần lấy lại năng lượng, bạn thường:</p>
+    <label><input type="radio" name="q1" value="Art"> Vẽ, viết, nghe nhạc</label>
+    <label><input type="radio" name="q1" value="Tech"> Chơi với đồ công nghệ</label>
+    <label><input type="radio" name="q1" value="Travel"> Đi đâu đó để thay đổi không khí</label>
+    <label><input type="radio" name="q1" value="Chill"> Ở nhà yên tĩnh</label>
+    <label><input type="radio" name="q1" value="Bold"> Tập thể dục hoặc thử thách</label>
+    <label><input type="radio" name="q1" value="Care"> Nói chuyện với người quen</label>
+  </div>
+  
+  <!-- Câu 2 đến 15 -->
+  <!-- (Copy nguyên từ file bạn đang dùng để thay thế phần này cho gọn) -->
+ <!-- Câu 2 -->
+  <div class="question"><p>2. Bạn thường là người như thế nào trong nhóm?</p>
+    <label><input type="radio" name="q2" value="Art"> Người nghĩ ra ý tưởng độc lạ</label>
+    <label><input type="radio" name="q2" value="Tech"> Người giải quyết vấn đề logic</label>
+    <label><input type="radio" name="q2" value="Travel"> Người luôn lên kế hoạch vui chơi</label>
+    <label><input type="radio" name="q2" value="Chill"> Người giữ cho cả nhóm thoải mái</label>
+    <label><input type="radio" name="q2" value="Bold"> Người dẫn dắt hoặc truyền động lực</label>
+    <label><input type="radio" name="q2" value="Care"> Người quan tâm đến cảm xúc mọi người</label>
+  </div>
+
+  <!-- Câu 3 -->
+  <div class="question"><p>3. Bạn muốn cuối tuần của mình như thế nào?</p>
+    <label><input type="radio" name="q3" value="Art"> Workshop nghệ thuật / triển lãm</label>
+    <label><input type="radio" name="q3" value="Tech"> Thử app/máy mới</label>
+    <label><input type="radio" name="q3" value="Travel"> Đi chơi xa / du lịch</label>
+    <label><input type="radio" name="q3" value="Chill"> Ở nhà nghỉ ngơi</label>
+    <label><input type="radio" name="q3" value="Bold"> Làm điều gì mới mẻ</label>
+    <label><input type="radio" name="q3" value="Care"> Làm tình nguyện / gặp bạn bè</label>
+  </div>
+
+  <!-- Câu 4 -->
+  <div class="question"><p>4. Chọn một câu miêu tả đúng bạn nhất:</p>
+    <label><input type="radio" name="q4" value="Art"> “Tôi cảm xúc và sáng tạo.”</label>
+    <label><input type="radio" name="q4" value="Tech"> “Tôi tò mò và logic.”</label>
+    <label><input type="radio" name="q4" value="Travel"> “Tôi tự do và phiêu lưu.”</label>
+    <label><input type="radio" name="q4" value="Chill"> “Tôi đơn giản và hài hòa.”</label>
+    <label><input type="radio" name="q4" value="Bold"> “Tôi mạnh mẽ và dám nghĩ dám làm.”</label>
+    <label><input type="radio" name="q4" value="Care"> “Tôi tử tế và lắng nghe.”</label>
+  </div>
+
+  <!-- Câu 5 -->
+  <div class="question"><p>5. Nếu được chọn một biểu tượng đại diện bản thân, bạn sẽ là:</p>
+    <label><input type="radio" name="q5" value="Art"> Cây cọ</label>
+    <label><input type="radio" name="q5" value="Tech"> Con chip</label>
+    <label><input type="radio" name="q5" value="Travel"> Chiếc vali</label>
+    <label><input type="radio" name="q5" value="Chill"> Đám mây</label>
+    <label><input type="radio" name="q5" value="Bold"> Ngọn lửa</label>
+    <label><input type="radio" name="q5" value="Care"> Trái tim</label>
+  </div>
+
+  <!-- Câu 6 -->
+  <div class="question"><p>6. Điều gì khiến bạn cảm thấy 'sống đúng chất mình'?</p>
+    <label><input type="radio" name="q6" value="Art"> Được làm thứ mình thích</label>
+    <label><input type="radio" name="q6" value="Tech"> Được hiểu và giải quyết vấn đề</label>
+    <label><input type="radio" name="q6" value="Travel"> Được tự do khám phá</label>
+    <label><input type="radio" name="q6" value="Chill"> Được là chính mình trong không gian an toàn</label>
+    <label><input type="radio" name="q6" value="Bold"> Được chinh phục điều mới</label>
+    <label><input type="radio" name="q6" value="Care"> Được giúp đỡ người khác</label>
+  </div>
+
+  <!-- Câu 7 -->
+  <div class="question"><p>7. Nếu bạn là một mùa trong năm, bạn sẽ là:</p>
+    <label><input type="radio" name="q7" value="Art"> Thu – lãng mạn, nghệ sĩ</label>
+    <label><input type="radio" name="q7" value="Tech"> Đông – logic, điềm tĩnh</label>
+    <label><input type="radio" name="q7" value="Travel"> Hè – rực rỡ, năng động</label>
+    <label><input type="radio" name="q7" value="Chill"> Xuân – nhẹ nhàng, trong trẻo</label>
+    <label><input type="radio" name="q7" value="Bold"> Mùa không tên – riêng biệt</label>
+    <label><input type="radio" name="q7" value="Care"> Bốn mùa – hòa nhập</label>
+  </div>
+
+  <!-- Câu 8 -->
+  <div class="question"><p>8. Trong một câu chuyện, bạn là:</p>
+    <label><input type="radio" name="q8" value="Art"> Người kể chuyện bằng tranh hoặc nhạc</label>
+    <label><input type="radio" name="q8" value="Tech"> Người suy luận ra cái kết</label>
+    <label><input type="radio" name="q8" value="Travel"> Nhân vật chính phiêu lưu</label>
+    <label><input type="radio" name="q8" value="Chill"> Người quan sát, hiểu sâu</label>
+    <label><input type="radio" name="q8" value="Bold"> Người hành động, thay đổi tình tiết</label>
+    <label><input type="radio" name="q8" value="Care"> Người gắn kết các nhân vật</label>
+  </div>
+
+  <!-- Câu 9 -->
+  <div class="question"><p>9. Chọn một màu đại diện cho bạn:</p>
+    <label><input type="radio" name="q9" value="Art"> Tím – sáng tạo và bí ẩn</label>
+    <label><input type="radio" name="q9" value="Tech"> Xám – trí tuệ và công nghệ</label>
+    <label><input type="radio" name="q9" value="Travel"> Cam – năng lượng và phiêu lưu</label>
+    <label><input type="radio" name="q9" value="Chill"> Xanh lá – thư giãn và tự nhiên</label>
+    <label><input type="radio" name="q9" value="Bold"> Đỏ – đam mê và bùng nổ</label>
+    <label><input type="radio" name="q9" value="Care"> Hồng – ấm áp và quan tâm</label>
+  </div>
+
+  <!-- Câu 10 -->
+  <div class="question"><p>10. Bạn thường sử dụng mạng xã hội để:</p>
+    <label><input type="radio" name="q10" value="Art"> Chia sẻ tác phẩm, cảm hứng</label>
+    <label><input type="radio" name="q10" value="Tech"> Theo dõi tin công nghệ/khoa học</label>
+    <label><input type="radio" name="q10" value="Travel"> Tìm địa điểm vui chơi, du lịch</label>
+    <label><input type="radio" name="q10" value="Chill"> Xem meme, nghe nhạc chill</label>
+    <label><input type="radio" name="q10" value="Bold"> Cập nhật trends mới</label>
+    <label><input type="radio" name="q10" value="Care"> Nói chuyện với bạn bè</label>
+  </div>
+
+  <!-- Câu 11 -->
+  <div class="question"><p>11. Nếu bạn có thể mở một tiệm gì đó, bạn sẽ chọn:</p>
+    <label><input type="radio" name="q11" value="Art"> Quán cà phê nghệ thuật</label>
+    <label><input type="radio" name="q11" value="Tech"> Tech store / Phòng lab sáng tạo</label>
+    <label><input type="radio" name="q11" value="Travel"> Dịch vụ tour du lịch</label>
+    <label><input type="radio" name="q11" value="Chill"> Homestay chill</label>
+    <label><input type="radio" name="q11" value="Bold"> Studio thể thao hoặc biểu diễn</label>
+    <label><input type="radio" name="q11" value="Care"> Cộng đồng tình nguyện</label>
+  </div>
+
+  <!-- Câu 12 -->
+  <div class="question"><p>12. Bạn học nhanh nhất khi:</p>
+    <label><input type="radio" name="q12" value="Art"> Thị giác – hình ảnh, màu sắc</label>
+    <label><input type="radio" name="q12" value="Tech"> Logic – sơ đồ, phân tích</label>
+    <label><input type="radio" name="q12" value="Travel"> Trải nghiệm – thực hành</label>
+    <label><input type="radio" name="q12" value="Chill"> Tự học, thư giãn</label>
+    <label><input type="radio" name="q12" value="Bold"> Áp lực hoặc thi đua</label>
+    <label><input type="radio" name="q12" value="Care"> Học cùng người khác</label>
+  </div>
+
+  <!-- Câu 13 -->
+  <div class="question"><p>13. Bạn dễ bị thu hút bởi:</p>
+    <label><input type="radio" name="q13" value="Art"> Thiết kế đẹp, độc đáo</label>
+    <label><input type="radio" name="q13" value="Tech"> Thứ mới lạ về công nghệ</label>
+    <label><input type="radio" name="q13" value="Travel"> Hình ảnh phong cảnh, chuyến đi</label>
+    <label><input type="radio" name="q13" value="Chill"> Cảm giác yên bình, nhẹ nhàng</label>
+    <label><input type="radio" name="q13" value="Bold"> Sự táo bạo, thách thức</label>
+    <label><input type="radio" name="q13" value="Care"> Câu chuyện cảm động, có ý nghĩa</label>
+  </div>
+
+  <!-- Câu 14 -->
+  <div class="question"><p>14. Một điều bạn luôn muốn nhắc bản thân là:</p>
+    <label><input type="radio" name="q14" value="Art"> “Cứ tạo ra – đừng ngần ngại.”</label>
+    <label><input type="radio" name="q14" value="Tech"> “Hiểu đúng là bước đầu tiên.”</label>
+    <label><input type="radio" name="q14" value="Travel"> “Cuộc sống là để trải nghiệm.”</label>
+    <label><input type="radio" name="q14" value="Chill"> “Đừng quên chăm sóc bản thân.”</label>
+    <label><input type="radio" name="q14" value="Bold"> “Hãy dũng cảm.”</label>
+    <label><input type="radio" name="q14" value="Care"> “Chia sẻ là sức mạnh.”</label>
+  </div>
+
+  <!-- Câu 15 -->
+  <div class="question"><p>15. Nếu bạn là nước, bạn sẽ là:</p>
+    <label><input type="radio" name="q15" value="Art"> Suối chảy sáng lấp lánh</label>
+    <label><input type="radio" name="q15" value="Tech"> Dòng sông ẩn sâu bên trong</label>
+    <label><input type="radio" name="q15" value="Travel"> Biển cả rộng lớn</label>
+    <label><input type="radio" name="q15" value="Chill"> Hồ nước phẳng lặng</label>
+    <label><input type="radio" name="q15" value="Bold"> Dòng thác mạnh mẽ</label>
+    <label><input type="radio" name="q15" value="Care"> Mưa nhẹ rơi khắp nơi</label>
+  </div>
+  
   <button type="button" onclick="showResult()">Xem kết quả</button>
 </form>
 
@@ -112,17 +257,21 @@
 
 <script>
   const quotes = {
-    Art: "🎨 Bạn là “nghệ sĩ” chính hiệu – sống theo cảm xúc, yêu cái đẹp và không ngại mơ mộng...",
-    Tech: "💻 Bạn thuộc hội đầu óc logic, mê khám phá và hơi “mọt” một chút – theo cách cool ngầu...",
-    Travel: "🍊 Bạn là người thích phiêu lưu, đổi gió và luôn sẵn sàng xách balo lên không vì lý do gì...",
-    Chill: "🌿 Bạn sống chậm hơn một nhịp – nhưng không hề tụt hậu...",
-    Bold: "🔥 Bạn là kiểu “cháy” rực rỡ, dám nghĩ dám làm và không sợ khác biệt...",
-    Care: "❤️ Bạn sống tử tế, quan tâm và luôn muốn lan toả yêu thương..."
+    Art: "🎨 Bạn là “nghệ sĩ” chính hiệu – sống theo cảm xúc, yêu cái đẹp và không ngại mơ mộng.",
+    Tech: "💻 Bạn thuộc hội đầu óc logic, mê khám phá và hơi “mọt” một chút.",
+    Travel: "🍊 Bạn là người thích phiêu lưu, đổi gió và luôn sẵn sàng xách balo lên.",
+    Chill: "🌿 Bạn sống chậm hơn một nhịp – nhưng không hề tụt hậu.",
+    Bold: "🔥 Bạn là kiểu “cháy” rực rỡ, dám nghĩ dám làm và không sợ khác biệt.",
+    Care: "❤️ Bạn sống tử tế, quan tâm và luôn muốn lan toả yêu thương."
   };
 
   const icons = {
-    Art:"art_flow.png", Tech:"tech_flow.png", Travel:"travel_flow.png",
-    Chill:"chill_flow.png", Bold:"bold_flow.png", Care:"care_flow.png"
+    Art: "art_flow.png",
+    Tech: "tech_flow.png",
+    Travel: "travel_flow.png",
+    Chill: "chill_flow.png",
+    Bold: "bold_flow.png",
+    Care: "care_flow.png"
   };
 
   const bigImages = {
@@ -136,24 +285,27 @@
 
   function showResult() {
     const total = 15;
-    const counts = { Art:0, Tech:0, Travel:0, Chill:0, Bold:0, Care:0 };
-    for (let i=1; i<=total; i++){
+    const counts = { Art: 0, Tech: 0, Travel: 0, Chill: 0, Bold: 0, Care: 0 };
+    for (let i = 1; i <= total; i++) {
       const el = document.querySelector(`input[name="q${i}"]:checked`);
-      if (!el){ alert(`Bạn chưa trả lời câu hỏi ${i}!`); return; }
+      if (!el) {
+        alert(`Bạn chưa trả lời câu hỏi ${i}!`);
+        return;
+      }
       counts[el.value]++;
     }
-    const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
     const best = sorted[0][0];
-    document.getElementById("flowType").innerHTML = `<img src="${icons[best]}" alt=""><strong>Bạn là: ${best} Flow</strong>`;
+    const finalFlow = `${best} Flow`;
+    
+    document.getElementById("flowType").innerHTML = `<img src="${icons[best]}" alt=""><strong>Bạn là: ${finalFlow}</strong>`;
     document.getElementById("quote").textContent = quotes[best];
-
-    // Thay đổi logo thành ảnh lớn của Flow
     document.getElementById("mainLogo").src = bigImages[best];
 
     document.getElementById("quizForm").classList.add("hidden");
     document.getElementById("result").classList.remove("hidden");
   }
 </script>
-
 </body>
 </html>
+
