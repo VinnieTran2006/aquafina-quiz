@@ -15,7 +15,7 @@
       animation: backgroundMove 20s linear infinite; /* 🔥 ANIMATION */
     }
 
-    @keyframes backgroundMove { /* 🔥 ANIMATION */
+    @keyframes backgroundMove {
       0% { background-position: center top; }
       50% { background-position: center bottom; }
       100% { background-position: center top; }
@@ -27,8 +27,18 @@
     }
     header img {
       max-width: 180px;
-      transition: all 0.5s ease; /* 🔥 ANIMATION */
-        display: none; /* ❌ Ẩn logo Aquafina */
+      transition: all 0.5s ease;
+      display: none; /* ❌ Ẩn logo Aquafina */
+    }
+
+    #resultImage {
+      display: none; /* ✅ Ẩn trước khi hiện kết quả */
+      max-width: 300px;
+      margin: 0 auto 20px;
+      display: block;
+      transition: opacity 0.5s ease;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
 
     form {
@@ -58,10 +68,10 @@
       display: block;
       margin: 5px 0;
       cursor: pointer;
-      transition: background-color 0.3s ease; /* 🔥 ANIMATION */
+      transition: background-color 0.3s ease;
     }
 
-    label:hover { /* 🔥 ANIMATION */
+    label:hover {
       background-color: rgba(0, 128, 192, 0.1);
     }
 
@@ -79,10 +89,10 @@
       cursor: pointer;
       display: block;
       margin: 20px auto 0;
-      transition: background 0.3s, transform 0.2s ease; /* 🔥 ANIMATION */
+      transition: background 0.3s, transform 0.2s ease;
     }
 
-    button:hover { /* 🔥 ANIMATION */
+    button:hover {
       background-color: #006a94;
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(0, 128, 192, 0.4);
@@ -96,11 +106,11 @@
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       text-align: center;
-      animation: fadeIn 1s ease forwards; /* 🔥 ANIMATION */
-      opacity: 0; /* 🔥 ANIMATION */
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
     }
 
-    @keyframes fadeIn { /* 🔥 ANIMATION */
+    @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
@@ -124,7 +134,8 @@
 
 <form id="quizForm">
   <h1>Be Your Flow</h1>
-  <!-- ⚡ Toàn bộ câu hỏi 1–15 ở đây (bạn copy nguyên phần câu hỏi cũ vào đây) -->
+  <!-- 💡 TOÀN BỘ 15 CÂU HỎI -->
+  <!-- Bạn giữ nguyên phần câu hỏi từ 1–15 ở đây -->
  <div class="question"><p>1. Khi bạn cần lấy lại năng lượng, bạn thường:</p>
     <label><input type="radio" name="q1" value="Art"> Vẽ, viết, nghe nhạc</label>
     <label><input type="radio" name="q1" value="Tech"> Chơi với đồ công nghệ</label>
@@ -276,10 +287,14 @@
     <label><input type="radio" name="q15" value="Care"> Mưa nhẹ rơi khắp nơi</label>
   </div>
 
+  
   <button type="button" onclick="showResult()">Xem kết quả</button>
 </form>
 
 <div id="result" class="hidden">
+  <!-- ✅ Ảnh kết quả lớn -->
+  <img id="resultImage" src="" alt="Flow Result">
+  
   <h2>Kết quả của bạn:</h2>
   <p id="flowType"></p>
   <p id="quote"></p>
@@ -324,9 +339,14 @@
     const best = sorted[0][0];
     const finalFlow = `${best} Flow`;
 
+    // ✅ Hiển thị ảnh kết quả lớn
+    const resultImage = document.getElementById("resultImage");
+    resultImage.src = bigImages[best];
+    resultImage.style.display = "block";
+
     document.getElementById("flowType").innerHTML = `<img src="${icons[best]}" alt=""><strong>Bạn là: ${finalFlow}</strong>`;
     document.getElementById("quote").textContent = quotes[best];
-    document.getElementById("mainLogo").src = bigImages[best]; // 🔥 ANIMATION đổi logo
+
     document.getElementById("quizForm").classList.add("hidden");
     document.getElementById("result").classList.remove("hidden");
   }
