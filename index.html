@@ -12,7 +12,7 @@
       color: #003f8a;
       margin: 0;
       padding: 0;
-      animation: backgroundMove 20s linear infinite; /* 🔥 ANIMATION */
+      animation: backgroundMove 20s linear infinite;
     }
 
     @keyframes backgroundMove {
@@ -26,19 +26,16 @@
       padding: 20px;
     }
     header img {
-      max-width: 180px;
-      transition: all 0.5s ease;
       display: none; /* ❌ Ẩn logo Aquafina */
     }
 
     #resultImage {
-      display: none; /* ✅ Ẩn trước khi hiện kết quả */
+      display: none; /* Ẩn trước khi hiện */
       max-width: 300px;
       margin: 0 auto 20px;
-      display: block;
-      transition: opacity 0.5s ease;
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: opacity 1s ease;
     }
 
     form {
@@ -134,8 +131,7 @@
 
 <form id="quizForm">
   <h1>Be Your Flow</h1>
-  <!-- 💡 TOÀN BỘ 15 CÂU HỎI -->
-  <!-- Bạn giữ nguyên phần câu hỏi từ 1–15 ở đây -->
+  <!-- 🌟 TOÀN BỘ CÂU HỎI 1–15 -->
  <div class="question"><p>1. Khi bạn cần lấy lại năng lượng, bạn thường:</p>
     <label><input type="radio" name="q1" value="Art"> Vẽ, viết, nghe nhạc</label>
     <label><input type="radio" name="q1" value="Tech"> Chơi với đồ công nghệ</label>
@@ -287,7 +283,7 @@
     <label><input type="radio" name="q15" value="Care"> Mưa nhẹ rơi khắp nơi</label>
   </div>
 
-  
+
   <button type="button" onclick="showResult()">Xem kết quả</button>
 </form>
 
@@ -339,10 +335,8 @@
     const best = sorted[0][0];
     const finalFlow = `${best} Flow`;
 
-    // ✅ Hiển thị ảnh kết quả lớn
-    const resultImage = document.getElementById("resultImage");
-    resultImage.src = bigImages[best];
-    resultImage.style.display = "block";
+    document.getElementById("resultImage").src = bigImages[best];
+    document.getElementById("resultImage").style.display = "block";
 
     document.getElementById("flowType").innerHTML = `<img src="${icons[best]}" alt=""><strong>Bạn là: ${finalFlow}</strong>`;
     document.getElementById("quote").textContent = quotes[best];
