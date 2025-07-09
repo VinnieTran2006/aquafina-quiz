@@ -14,37 +14,33 @@
       padding: 0;
       animation: fadeIn 2s ease-in-out;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    header {
-      text-align: center;
-      padding: 20px;
-    }
-    header img {
-      max-width: 180px;
-      display: none; /* 🚨 Ẩn logo Aquafina khi load trang */
-      transition: opacity 0.5s ease;
-    }
+
     form {
       background: rgba(255, 255, 255, 0.9);
-      margin: 20px auto;
+      margin: 30px auto;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       max-width: 650px;
       animation: slideUp 1s ease;
     }
+
     @keyframes slideUp {
       from { transform: translateY(30px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
+
     h1 {
       color: #005bb5;
       margin-bottom: 15px;
       text-align: center;
     }
+
     .question {
       margin-bottom: 20px;
       border: 1px solid #cce7ff;
@@ -52,18 +48,17 @@
       border-radius: 8px;
       background: #ffffff;
     }
+
     label {
       display: block;
       margin: 5px 0;
       cursor: pointer;
-      transition: color 0.3s ease;
     }
-    label:hover {
-      color: #005bb5;
-    }
+
     input[type=radio] {
       margin-right: 8px;
     }
+
     button {
       background-color: #0080c0;
       color: white;
@@ -76,25 +71,30 @@
       margin: 20px auto 0;
       transition: background 0.3s, transform 0.2s ease;
     }
+
     button:hover {
       background-color: #006a94;
       transform: scale(1.05);
     }
+
     #result {
       background: rgba(255, 255, 255, 0.95);
       max-width: 650px;
-      margin: 20px auto;
+      margin: 30px auto;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       text-align: center;
       animation: fadeIn 1s ease;
     }
+
     #flowType img {
-      vertical-align: middle;
-      width: 50px;
-      margin-right: 10px;
+      display: block;
+      margin: 0 auto 15px;
+      width: 180px; /* phóng to ảnh kết quả */
+      transition: all 0.5s ease;
     }
+
     .hidden {
       display: none;
     }
@@ -102,13 +102,9 @@
 </head>
 <body>
 
-<header>
-  <img id="mainLogo" src="aquafina_logo.png" alt="Aquafina logo">
-</header>
-
 <form id="quizForm">
   <h1>Be Your Flow</h1>
-  <!-- Các câu hỏi từ 1 đến 15 ở đây -->
+  <!-- 📝 Câu hỏi 1–15 giữ nguyên như bạn -->
  <div class="question"><p>1. Khi bạn cần lấy lại năng lượng, bạn thường:</p>
     <label><input type="radio" name="q1" value="Art"> Vẽ, viết, nghe nhạc</label>
     <label><input type="radio" name="q1" value="Tech"> Chơi với đồ công nghệ</label>
@@ -272,52 +268,44 @@
 
 <script>
   const quotes = {
-    Art: "🎨 Bạn là “nghệ sĩ” chính hiệu – sống theo cảm xúc, yêu cái đẹp và không ngại mơ mộng. Dù ở đâu, bạn cũng muốn thế giới quanh mình trở nên “có gu” hơn một chút. Trong công việc hay tình yêu, bạn không cần hào nhoáng, chỉ cần chân thành và đủ cảm hứng.",
-    Tech: "💻 Bạn thuộc hội đầu óc logic, mê khám phá và hơi “mọt” một chút – theo cách cool ngầu. Bạn có thể không nói nhiều nhưng suy nghĩ cực sâu, thích tự tìm tòi mọi thứ từ A-Z. Trong tình yêu cũng giống vậy, ít drama, nhiều hiểu biết.",
-    Travel: "🍊 Bạn là người thích phiêu lưu, đổi gió và luôn sẵn sàng xách balo lên không vì lý do gì. Bạn ghét nhàm chán, yêu tự do, và luôn tìm kiếm những trải nghiệm mới – cả trong công việc lẫn tình yêu.",
-    Chill: "🌿 Bạn sống chậm hơn một nhịp – nhưng không hề tụt hậu. Bạn thích sự yên bình, tự tại và có gu sống “mềm”. Người như bạn dễ tạo cảm giác an toàn cho người khác, và thường là chốn bình yên của ai đó.",
-    Bold: "🔥 Bạn là kiểu “cháy” rực rỡ, dám nghĩ dám làm và không sợ khác biệt. Bạn truyền năng lượng cho mọi người, và chẳng ngại phá khuôn. Trong tình yêu hay công việc, bạn cần cảm hứng, hành động và một chút… bùng nổ!",
-    Care: "❤️ Bạn sống tử tế, quan tâm và luôn muốn lan toả yêu thương. Người như bạn là chất keo gắn kết cộng đồng, và luôn biết cách làm người khác thấy ấm áp."
-  };
-
-  const icons = {
-    Art: "art_flow.png", Tech: "tech_flow.png", Travel: "travel_flow.png",
-    Chill: "chill_flow.png", Bold: "bold_flow.png", Care: "care_flow.png"
+    Art: "🎨 Bạn là “nghệ sĩ” chính hiệu – sống theo cảm xúc, yêu cái đẹp và không ngại mơ mộng...",
+    Tech: "💻 Bạn thuộc hội đầu óc logic, mê khám phá và hơi “mọt” một chút – theo cách cool ngầu...",
+    Travel: "🍊 Bạn là người thích phiêu lưu, đổi gió và luôn sẵn sàng xách balo lên không vì lý do gì...",
+    Chill: "🌿 Bạn sống chậm hơn một nhịp – nhưng không hề tụt hậu...",
+    Bold: "🔥 Bạn là kiểu “cháy” rực rỡ, dám nghĩ dám làm và không sợ khác biệt...",
+    Care: "❤️ Bạn sống tử tế, quan tâm và luôn muốn lan toả yêu thương..."
   };
 
   const bigImages = {
-    Art: "art.png", Tech: "tech.png", Travel: "travel.png",
-    Chill: "chill.png", Bold: "bold.png", Care: "care.png"
+    Art: "art.png",
+    Tech: "tech.png",
+    Travel: "travel.png",
+    Chill: "chill.png",
+    Bold: "bold.png",
+    Care: "care.png"
   };
 
   function showResult() {
     const total = 15;
-    const counts = { Art: 0, Tech: 0, Travel: 0, Chill: 0, Bold: 0, Care: 0 };
-    for (let i = 1; i <= total; i++) {
+    const counts = { Art:0, Tech:0, Travel:0, Chill:0, Bold:0, Care:0 };
+    for (let i=1; i<=total; i++){
       const el = document.querySelector(`input[name="q${i}"]:checked`);
-      if (!el) {
-        alert(`Bạn chưa trả lời câu hỏi ${i}!`);
-        return;
-      }
+      if (!el){ alert(`Bạn chưa trả lời câu hỏi ${i}!`); return; }
       counts[el.value]++;
     }
-    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+    const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
     const best = sorted[0][0];
-    const sec = sorted[1][0];
-    const finalFlow = (counts[best] === counts[sec]) ? `${best} & ${sec}` : best;
+    const finalFlow = `${best} Flow`;
 
-    document.getElementById("flowType").innerHTML = `<img src="${icons[best]}" alt=""><strong>Bạn là: ${finalFlow} Flow</strong>`;
+    document.getElementById("flowType").innerHTML = `
+      <img src="${bigImages[best]}" alt="">
+      <strong>Bạn là: ${finalFlow}</strong>
+    `;
     document.getElementById("quote").textContent = quotes[best];
-
-    // ✅ Đổi logo Aquafina thành Flow image
-    const mainLogo = document.getElementById("mainLogo");
-    mainLogo.src = bigImages[best];
-    mainLogo.style.display = "block";
-
     document.getElementById("quizForm").classList.add("hidden");
     document.getElementById("result").classList.remove("hidden");
   }
 </script>
+
 </body>
 </html>
-
