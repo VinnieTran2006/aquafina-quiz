@@ -25,17 +25,12 @@
       text-align: center;
       padding: 20px;
     }
-    header img {
-      display: none; /* ❌ Ẩn logo Aquafina */
-    }
 
-    #resultImage {
-      display: none; /* Ẩn trước khi hiện */
-      max-width: 300px;
-      margin: 0 auto 20px;
+    header img {
+      max-width: 300px; /* Kích thước ảnh chữ Be Your Flow */
       border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      transition: opacity 1s ease;
+      animation: fadeIn 2s ease forwards;
     }
 
     form {
@@ -45,12 +40,6 @@
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       max-width: 650px;
-    }
-
-    h1 {
-      color: #005bb5;
-      margin-bottom: 15px;
-      text-align: center;
     }
 
     .question {
@@ -126,7 +115,8 @@
 <body>
 
 <header>
-  <img id="mainLogo" src="aquafina_logo.png" alt="Aquafina logo">
+  <!-- 🌟 Dùng ảnh chữ Be Your Flow -->
+  <img src="be_your_flow.png" alt="Be Your Flow">
 </header>
 
 <form id="quizForm">
