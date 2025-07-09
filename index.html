@@ -7,28 +7,30 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      /* 🌊 Background gradient animate */
-      background: linear-gradient(270deg, #e0f7ff, #cce7ff, #e0f7ff);
-      background-size: 600% 600%;
-      animation: waveBackground 10s ease infinite;
+      background: url('flow_background.png') no-repeat center center fixed;
+      background-size: cover;
       color: #003f8a;
       margin: 0;
       padding: 0;
+      animation: backgroundMove 20s linear infinite; /* 🔥 ANIMATION */
     }
-    @keyframes waveBackground {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+
+    @keyframes backgroundMove { /* 🔥 ANIMATION */
+      0% { background-position: center top; }
+      50% { background-position: center bottom; }
+      100% { background-position: center top; }
     }
+
     header {
       text-align: center;
       padding: 20px;
     }
     header img {
       max-width: 180px;
-      transition: all 0.5s ease;
-      display: none; /* ❌ Ẩn logo Aquafina */
+      transition: all 0.5s ease; /* 🔥 ANIMATION */
+        display: none; /* ❌ Ẩn logo Aquafina */
     }
+
     form {
       background: rgba(255, 255, 255, 0.9);
       margin: 20px auto;
@@ -36,17 +38,14 @@
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       max-width: 650px;
-      animation: fadeIn 1s ease forwards;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+
     h1 {
       color: #005bb5;
       margin-bottom: 15px;
       text-align: center;
     }
+
     .question {
       margin-bottom: 20px;
       border: 1px solid #cce7ff;
@@ -54,14 +53,22 @@
       border-radius: 8px;
       background: #ffffff;
     }
+
     label {
       display: block;
       margin: 5px 0;
       cursor: pointer;
+      transition: background-color 0.3s ease; /* 🔥 ANIMATION */
     }
+
+    label:hover { /* 🔥 ANIMATION */
+      background-color: rgba(0, 128, 192, 0.1);
+    }
+
     input[type=radio] {
       margin-right: 8px;
     }
+
     button {
       background-color: #0080c0;
       color: white;
@@ -72,13 +79,15 @@
       cursor: pointer;
       display: block;
       margin: 20px auto 0;
-      transition: background 0.3s, transform 0.2s ease;
+      transition: background 0.3s, transform 0.2s ease; /* 🔥 ANIMATION */
     }
-    button:hover {
+
+    button:hover { /* 🔥 ANIMATION */
       background-color: #006a94;
       transform: scale(1.05);
-      box-shadow: 0 0 10px #00bfff;
+      box-shadow: 0 0 15px rgba(0, 128, 192, 0.4);
     }
+
     #result {
       background: rgba(255, 255, 255, 0.95);
       max-width: 650px;
@@ -87,12 +96,21 @@
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       text-align: center;
+      animation: fadeIn 1s ease forwards; /* 🔥 ANIMATION */
+      opacity: 0; /* 🔥 ANIMATION */
     }
+
+    @keyframes fadeIn { /* 🔥 ANIMATION */
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     #flowType img {
       vertical-align: middle;
       width: 50px;
       margin-right: 10px;
     }
+
     .hidden {
       display: none;
     }
@@ -106,7 +124,7 @@
 
 <form id="quizForm">
   <h1>Be Your Flow</h1>
-  <!-- ✅ Các câu hỏi từ 1–15 đặt ở đây -->
+  <!-- ⚡ Toàn bộ câu hỏi 1–15 ở đây (bạn copy nguyên phần câu hỏi cũ vào đây) -->
  <div class="question"><p>1. Khi bạn cần lấy lại năng lượng, bạn thường:</p>
     <label><input type="radio" name="q1" value="Art"> Vẽ, viết, nghe nhạc</label>
     <label><input type="radio" name="q1" value="Tech"> Chơi với đồ công nghệ</label>
@@ -279,8 +297,8 @@
   };
 
   const icons = {
-    Art:"art_flow.png", Tech:"tech_flow.png", Travel:"travel_flow.png",
-    Chill:"chill_flow.png", Bold:"bold_flow.png", Care:"care_flow.png"
+    Art: "art_flow.png", Tech: "tech_flow.png", Travel: "travel_flow.png",
+    Chill: "chill_flow.png", Bold: "bold_flow.png", Care: "care_flow.png"
   };
 
   const bigImages = {
@@ -294,20 +312,25 @@
 
   function showResult() {
     const total = 15;
-    const counts = { Art:0, Tech:0, Travel:0, Chill:0, Bold:0, Care:0 };
-    for (let i=1; i<=total; i++){
+    const counts = { Art: 0, Tech: 0, Travel: 0, Chill: 0, Bold: 0, Care: 0 };
+
+    for (let i = 1; i <= total; i++) {
       const el = document.querySelector(`input[name="q${i}"]:checked`);
-      if (!el){ alert(`Bạn chưa trả lời câu hỏi ${i}!`); return; }
+      if (!el) { alert(`Bạn chưa trả lời câu hỏi ${i}!`); return; }
       counts[el.value]++;
     }
-    const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+
+    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
     const best = sorted[0][0];
-    document.getElementById("flowType").innerHTML = `<img src="${icons[best]}" alt=""><strong>Bạn là: ${best} Flow</strong>`;
+    const finalFlow = `${best} Flow`;
+
+    document.getElementById("flowType").innerHTML = `<img src="${icons[best]}" alt=""><strong>Bạn là: ${finalFlow}</strong>`;
     document.getElementById("quote").textContent = quotes[best];
-    document.getElementById("mainLogo").src = bigImages[best];
+    document.getElementById("mainLogo").src = bigImages[best]; // 🔥 ANIMATION đổi logo
     document.getElementById("quizForm").classList.add("hidden");
     document.getElementById("result").classList.remove("hidden");
   }
 </script>
+
 </body>
 </html>
