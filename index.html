@@ -324,29 +324,29 @@
     Care: "care.png"
   };
 
-  function showResult() {
-    const total = 15;
-    const counts = { Art: 0, Tech: 0, Travel: 0, Chill: 0, Bold: 0, Care: 0 };
+ function showResult() {
+  const total = 15;
+  const counts = { Art: 0, Tech: 0, Travel: 0, Chill: 0, Bold: 0, Care: 0 };
 
-    for (let i = 1; i <= total; i++) {
-      const el = document.querySelector(input[name="q${i}"]:checked);
-      if (!el) { alert(Bạn chưa trả lời câu hỏi ${i}!); return; }
-      counts[el.value]++;
-    }
-
-    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-    const best = sorted[0][0];
-    const finalFlow = ${best} Flow;
-
-    document.getElementById("resultImage").src = bigImages[best];
-    document.getElementById("resultImage").style.display = "block";
-
-    document.getElementById("flowType").innerHTML = <img src="${icons[best]}" alt=""><strong>Bạn là: ${finalFlow}</strong>;
-    document.getElementById("quote").textContent = quotes[best];
-
-    document.getElementById("quizForm").classList.add("hidden");
-    document.getElementById("result").classList.remove("hidden");
+  for (let i = 1; i <= total; i++) {
+    const el = document.querySelector(`input[name="q${i}"]:checked`);
+    if (!el) { alert(`Bạn chưa trả lời câu hỏi ${i}!`); return; }
+    counts[el.value]++;
   }
+
+  const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  const best = sorted[0][0];
+  const finalFlow = `${best} Flow`;
+
+  document.getElementById("resultImage").src = bigImages[best];
+  document.getElementById("resultImage").style.display = "block";
+
+  document.getElementById("flowType").innerHTML = `<img src="${icons[best]}" alt=""><strong>Bạn là: ${finalFlow}</strong>`;
+  document.getElementById("quote").textContent = quotes[best];
+
+  document.getElementById("quizForm").classList.add("hidden");
+  document.getElementById("result").classList.remove("hidden");
+}
 </script>
 
 </body>
