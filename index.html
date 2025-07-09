@@ -284,12 +284,12 @@
   </div>
 
 
-  <button type="button" onclick="showResult()">Xem kết quả</button>
+<button type="button" onclick="showResult()">Xem kết quả</button>
 </form>
 
 <div id="result" class="hidden">
   <!-- ✅ Ảnh kết quả lớn -->
-  <img id="resultImage" src="" alt="Flow Result">
+  <img id="resultImage" src="" alt="Flow Result" style="max-width: 400px; max-height: 400px; width: auto; height: auto; display: none; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); margin: 0 auto 20px; transition: opacity 1s ease;">
   
   <h2>Kết quả của bạn:</h2>
   <p id="flowType"></p>
@@ -307,7 +307,7 @@
     Care: "❤️ Bạn sống tử tế, quan tâm và luôn muốn lan toả yêu thương."
   };
 
-  const icons = {
+   const icons = {
     Art: "art_flow.png", Tech: "tech_flow.png", Travel: "travel_flow.png",
     Chill: "chill_flow.png", Bold: "bold_flow.png", Care: "care_flow.png"
   };
@@ -327,7 +327,10 @@
 
     for (let i = 1; i <= total; i++) {
       const el = document.querySelector(`input[name="q${i}"]:checked`);
-      if (!el) { alert(`Bạn chưa trả lời câu hỏi ${i}!`); return; }
+      if (!el) { 
+        alert(`Bạn chưa trả lời câu hỏi ${i}!`); 
+        return; 
+      }
       counts[el.value]++;
     }
 
@@ -335,8 +338,10 @@
     const best = sorted[0][0];
     const finalFlow = `${best} Flow`;
 
-    document.getElementById("resultImage").src = bigImages[best];
-    document.getElementById("resultImage").style.display = "block";
+    // Hiển thị ảnh kết quả
+    const resultImage = document.getElementById("resultImage");
+    resultImage.src = bigImages[best];
+    resultImage.style.display = "block";
 
     document.getElementById("flowType").innerHTML = `<img src="${icons[best]}" alt=""><strong>Bạn là: ${finalFlow}</strong>`;
     document.getElementById("quote").textContent = quotes[best];
